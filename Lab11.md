@@ -121,6 +121,9 @@ valgrind --tool=helgrind ./main-signal
 
 Helgrind reports a possible data race on the shared variable `done`. The main thread reads `done` while the worker thread writes to it, and neither access is protected by a lock. The program output appears correct because it prints `this should print first` and then `this should print last`, but the code is still not properly synchronized. So it may seem to work, but it is not a correct threaded solution.
 
+
+**zk** So what exactly might happen to produce an incorrect result?
+
 ---
 
 ## Part E — `main-signal-cv.c`
